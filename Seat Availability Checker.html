@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seat Availability Checker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .app-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      padding: 10px;
+      margin: 15px 0;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result-box {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <h1>Seat Availability Checker</h1>
+    <p>Select a category to check for free seats</p>
+
+    <select id="category">
+      <option value="college">College</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="vehicle">Vehicle</option>
+      <option value="event">Event Tickets</option>
+    </select>
+
+    <button onclick="checkAvailability()">Check Availability</button>
+
+    <div id="result-box"></div>
+  </div>
+
+  <script>
+    function checkAvailability() {
+      const category = document.getElementById("category").value;
+      const resultBox = document.getElementById("result-box");
+
+      // Dummy data for availability (can be replaced with real API later)
+      const dummyData = {
+        college: "15 seats available in Library & Study Rooms.",
+        restaurant: "4 tables are free at your nearest branch.",
+        vehicle: "6 seats are available on Route Bus No. 24.",
+        event: "23 tickets left for the Music Fest."
+      };
+
+      resultBox.textContent = dummyData[category];
+    }
+  </script>
+</body>
+</html>
